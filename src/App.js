@@ -1,25 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+import { Text, View, StyleSheet } from 'react-native';
+import Constants from 'expo-constants';
 
-function App() {
+// You can import from local files
+import AssetExample from './components/AssetExample';
+
+// or any pure javascript modules available in npm
+import { Card } from 'react-native-paper';
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Header</Text>
+      </View>
+      <Text style={styles.paragraph}>
+        Content
+      </Text>
+      <View style={styles.footer}>
+        <Text style={styles.footerText}>Footer</Text>
+      </View>
+    </View>
   );
 }
 
-export default App;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'space-between',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#ecf0f1',
+    padding: 8,
+  },
+  header: {
+    backgroundColor: 'black',
+    padding: 8,
+    marginBottom: 16,
+  },
+  headerText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: 'white',
+  },
+  paragraph: {
+    margin: 24,
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  footer: {
+    backgroundColor: 'black',
+    padding: 8,
+    marginTop: 16,
+  },
+  footerText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: 'white',
+  },
+});
